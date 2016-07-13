@@ -19,7 +19,7 @@ out = PyCompressor.get_file_output() # Get the path of the compressed file.
 
 print("File has been compressed.\nStart Size: " + str(start) + "\nEnd Size: " + str(end) + "\nInput: " + in_ + "\nOutput: " + out) # Print the results.
 ```
-<br>The out put of this code would look something like this...
+<br>The output of this code would look something like this...
 ```shell
 root@sp00ky-server:~# python Newfile.py
 File has been compressed.
