@@ -18,21 +18,36 @@ import gzip
 
 class Worker:
 
-    def __init__(self, path):
+    def __init__(self, path, output):
+        if (output == "none"):
+            output = path + ".gz"
+
+        to_check = output.strip(output.split("/")[len(output.split("/")) - 1])
+        if (not to_check.endswith("/")):
+            to_check += "/"
+        if (not os.path.exists(to_check)):
+            raise Exception("Null... path doesn't exist")
+        if (not len(output.split("/")[len(output.split("/")) - 1].split(".")) >= 2):
+            if (not output.endswith("/")):
+                output += "/"
+            output += path.split("/")[len(path.split("/")) - 1] + ".gz"
+
         self.path = path
+        self.output = output
         self.is_done = False
         self.start_size = 0
         self.end_size = 0
 
     def compress(self):
         x = self.path
+
         if (os.path.exists(x)):
             if (os.path.isfile(x)):
                 self.start_size = os.stat(x).st_size
                 with open(x, "rb") as to_compress:
-                    with gzip.open(x + ".gz", "wb") as compressed:
+                    with gzip.open(self.output, "wb") as compressed:
                         compressed.writelines(to_compress)
-                self.end_size = os.stat(x + ".gz").st_size
+                self.end_size = os.stat(self.output).st_size
                 self.is_done = True
             else:
                 raise Exception("Null... path doesn't point to a file")
@@ -41,9 +56,11 @@ class Worker:
 
 global worker
 
-def compress(path):
+def compress(path, output="none"):
     global worker
-    worker = Worker(path)
+    path = path.replace("\\", "/")
+    output = output.replace("\\", "/")
+    worker = Worker(path, output)
     worker.compress();
 
 def get_start_size():
@@ -61,3 +78,19 @@ def get_end_size():
     except:
         raise Exception("Incomplete... file hasn't been compressed yet")
     return worker.end_size
+
+def get_file_input():
+    global worker
+    try:
+        worker.is_done
+    except:
+        raise Exception("Incomplete... file hasn't been compressed yet")
+    return worker.path
+
+def get_file_output():
+    global worker
+    try:
+        worker.is_done
+    except:
+        raise Exception("Incomplete... file hasn't been compressed yet")
+    return worker.output
