@@ -21,10 +21,25 @@ print("File has been compressed.\nStart Size: " + str(start) + "\nEnd Size: " + 
 ```
 <br>The out put of this code would look something like this...
 ```shell
-sh-4.3$ python Newfile.py
+root@sp00ky-server:~# python Newfile.py
 File has been compressed.
 Start Size: 2455
 End Size: 850
 Input: input.txt
 Output: output.gz
 ```
+
+# Dependencies
+None. You just need Python installed on your system (see below).<br>
+<br>
+**Windows:**<br>
+Go to the Python download page for Windows systems ([here](https://www.python.org/downloads/windows/)).<br>
+Download the version you want.<br>
+Run the installer file.<br>
+
+**Ubuntu:**<br>
+_(Most new version of ubuntu should have python pre-installed)._<br>
+sudo apt-get install pythonVERSION_NUMBER_HERE<br>
+
+**Other:**<br>
+You can learn how to install python on other systems [here](https://google.com/).
