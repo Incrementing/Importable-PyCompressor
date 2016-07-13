@@ -8,9 +8,9 @@ This was created so that the compressor can be used from within other scripts/pr
 # Usage
 Below is an example showing this script in action.
 ```python
-import PyCompressor # Import the script
+import PyCompressor # Import the script.
 
-PyCompressor.compress("path/to/file.txt") # Compress a file
+PyCompressor.compress("path/to/file.txt") # Compress a file.
 start = PyCompressor.get_start_size() # Get the size (in bytes) of the file before it's been compressed.
 end = PyCompressor.get_end_size() # Get the size (in bytes) of the file after it's been compressed.
 
