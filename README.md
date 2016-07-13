@@ -21,7 +21,6 @@ print("File has been compressed.\nStart Size: " + str(start) + "\nEnd Size: " + 
 ```
 <br>The output of this code would look something like this...
 ```shell
-root@sp00ky-server:~# python Newfile.py
 File has been compressed.
 Start Size: 2455
 End Size: 850
