@@ -27,6 +27,26 @@ End Size: 850
 Input: input.txt
 Output: output.gz
 ```
+<br>This script can also be used to compress strings of text not just files! Here's an example:
+```python
+import PyCompressor # Import the script.
+
+PyCompressor.compress_str("string here...", "optional/output/path/argument") # Compress a string.
+start = PyCompressor.get_start_size() # Get the size (in bytes) of the file before it's been compressed.
+end = PyCompressor.get_end_size() # Get the size (in bytes) of the file after it's been compressed.
+in_ = PyCompressor.get_str_input() # Get the path of the origin file.
+out = PyCompressor.get_file_output() # Get the path of the compressed file.
+
+print("String has been compressed.\nStart Size: " + str(start) + "\nEnd Size: " + str(end) + "\nInput: " + in_ + "\nOutput: " + out) # Print the results.
+```
+<br>The output of this code would look something like this...
+```shell
+String has been compressed.
+Start Size: N/A
+End Size: 45
+Input: input string here!
+Output: output.gz
+```
 
 # Dependencies
 None. You just need Python installed on your system (see below).<br>
