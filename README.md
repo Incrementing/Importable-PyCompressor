@@ -34,7 +34,7 @@ import PyCompressor # Import the script.
 PyCompressor.compress_str("string here...", "optional/output/path/argument") # Compress a string.
 start = PyCompressor.get_start_size() # Get the size (in bytes) of the file before it's been compressed.
 end = PyCompressor.get_end_size() # Get the size (in bytes) of the file after it's been compressed.
-in_ = PyCompressor.get_str_input() # Get the path of the origin file.
+in_ = PyCompressor.get_str_input() # Get the input string.
 out = PyCompressor.get_file_output() # Get the path of the compressed file.
 
 print("String has been compressed.\nStart Size: " + str(start) + "\nEnd Size: " + str(end) + "\nInput: " + in_ + "\nOutput: " + out) # Print the results.
